@@ -3,7 +3,7 @@ require 'spec_helper'
 describe GeoNamesAPI::PlaceSearch do
   describe "::find" do
     it "should search for places dealing with ohio" do
-      search = GeoNamesAPI::PlaceSearch.find("ohio", "10")
+      search = GeoNamesAPI::PlaceSearch.find("idaho", "10")
       search.should be_present
       search.total_results_count.should > 0
       search.results.size.should == 10
@@ -12,9 +12,9 @@ describe GeoNamesAPI::PlaceSearch do
 
   describe "::find_by_place_name" do
     it "should find the place by name" do
-      search = GeoNamesAPI::PlaceSearch.find_by_place_name("ohio", "10")
+      search = GeoNamesAPI::PlaceSearch.find_by_place_name("idaho", "10")
       search.total_results_count.should > 0
-      search.results.each{|place| place.name.should =~ /ohio/i }
+      search.results.each{|place| place.name.should =~ /idaho/i }
     end
   end
 
