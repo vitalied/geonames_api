@@ -1,8 +1,8 @@
 module GeoNamesAPI
-  class Wikipedia < GeoNamesAPI::Object
-    
+  class Wikipedia < ListEndpoint
+
     METHOD = "findNearbyWikipediaJSON"
-    ID = %W(lat lng)
-    
+    FIND_PARAMS = %W(lat lng radius maxRows)
+
   end
 end

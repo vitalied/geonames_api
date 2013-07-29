@@ -1,8 +1,8 @@
 module GeoNamesAPI
-  class PostalCode < GeoNamesAPI::Object
+  class PostalCode < ListEndpoint
 
     METHOD = "postalCodeLookupJSON"
-    ID = ["postalcode", "country"]
+    FIND_PARAMS = %w(postalcode country)
 
     def city
       place_name

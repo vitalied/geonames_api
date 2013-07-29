@@ -1,7 +1,8 @@
 module GeoNamesAPI
-  class CountryCode < GeoNamesAPI::Object
+  class CountryCode < SingletonEndpoint
+
     METHOD = "countryCodeJSON"
-    ID = ["lat", "lng"]
-    NESTED = false
+    FIND_PARAMS = %w(lat lng type lang radius)
+
   end
 end

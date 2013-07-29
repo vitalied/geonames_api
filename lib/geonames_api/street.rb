@@ -1,6 +1,8 @@
 module GeoNamesAPI
-  class Street < GeoNamesAPI::Object
+  class Street < ListEndpoint
+
     METHOD = "findNearbyStreetsJSON"
-    ID = ["lat", "lng", "radius", "maxRows"]
+    FIND_PARAMS = %w(lat lng radius maxRows)
+
   end
 end

@@ -1,6 +1,8 @@
 module GeoNamesAPI
-  class PlaceName < GeoNamesAPI::Object
+  class PlaceName < ListEndpoint
+
     METHOD = "findNearbyPlaceNameJSON"
-    ID = ["lat", "lng", "radius", "maxRows"]
+    FIND_PARAMS = %w(lat lng radius maxRows)
+
   end
 end

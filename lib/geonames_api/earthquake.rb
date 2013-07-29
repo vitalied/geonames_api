@@ -1,6 +1,8 @@
 module GeoNamesAPI
-  class Earthquake < GeoNamesAPI::Object
+  class Earthquake < ListEndpoint
+
     METHOD = "earthquakesJSON"
-    ID = ["north", "east", "south", "west", "date", "minMagnitude", "maxRows"]
+    FIND_PARAMS = %w(north east south west date minMagnitude maxRows)
+
   end
 end
