@@ -1,6 +1,7 @@
 # GeoNames API
 
 [![Build Status](https://secure.travis-ci.org/mceachen/geonames_api.png?branch=master)](http://travis-ci.org/mceachen/geonames_api)
+[![Code Climate](https://codeclimate.com/github/mceachen/geonames_api.png)](https://codeclimate.com/github/mceachen/geonames_api)
 
 This is a lightweight client for the [GeoNames](http://www.geonames.org) API. Huge thanks to them for such a great service!
 
@@ -8,7 +9,7 @@ There are many GeoNames API clients. BUT, most are rewritten versions of a Java 
 
 This is a simplified ruby implementation that does not implement the entire API. But, its lightweight and has a nice interface and will be easy to extend :)
 
-The gem was written by [@barelyknown](http://twitter.com/barelyknown).
+The gem was originally written by [@barelyknown](http://twitter.com/barelyknown).
 
 ## Getting Started
 
