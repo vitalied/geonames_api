@@ -11,6 +11,14 @@ This is a simplified ruby implementation that does not implement the entire API.
 
 The gem was originally written by [@barelyknown](http://twitter.com/barelyknown).
 
+This fork adds
+* automatic retries on timeout,
+* properly encoded url parameters,
+* support for paid users (with https and API tokens)
+* more consistent ```find``` and ```where``` methods across endpoints
+* Timezone, AlternateName, and GeoName entries properly encoded in results
+* better test coverage, Travis CI, and CodeClimate integration
+
 ## Getting Started
 
 Add this line to your application's Gemfile:
