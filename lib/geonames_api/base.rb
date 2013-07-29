@@ -26,7 +26,8 @@ module GeoNamesAPI
           parse_response(response, params)
         end
       rescue Timeout => e
-        if (retries_remaining -= 1) > 0
+        if retries_remaining > 0
+          retries_remaining -= 1
           puts "retrying!"
           sleep rand * GeoNamesAPI.max_sleep_time_between_retries
           retry
