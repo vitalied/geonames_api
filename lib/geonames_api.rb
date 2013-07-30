@@ -6,7 +6,6 @@ require 'zipruby'
 
 Dir[File.dirname(__FILE__) + '/geonames_api/*.rb'].each do |file|
   tgt = File.basename(file, File.extname(file))
-  #require "geonames_api/#{tgt}"
   GeoNamesAPI.autoload tgt.camelize, "geonames_api/#{tgt}"
 end
 
