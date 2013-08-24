@@ -4,11 +4,6 @@ require 'csv'
 require 'active_support/all'
 require 'zipruby'
 
-Dir[File.dirname(__FILE__) + '/geonames_api/*.rb'].each do |file|
-  tgt = File.basename(file, File.extname(file))
-  GeoNamesAPI.autoload tgt.camelize, "geonames_api/#{tgt}"
-end
-
 module GeoNamesAPI
 
   mattr_accessor :url
@@ -44,4 +39,9 @@ module GeoNamesAPI
     }.delete_if{ |k, v| v.blank? }
   end
     
+end
+
+Dir[File.dirname(__FILE__) + '/geonames_api/*.rb'].each do |file|
+  tgt = File.basename(file, File.extname(file))
+  GeoNamesAPI.autoload tgt.camelize, "geonames_api/#{tgt}"
 end
