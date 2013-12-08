@@ -4,34 +4,44 @@ require 'csv'
 require 'active_support/all'
 require 'zipruby'
 
-require "geonames_api/version"
-require "geonames_api/error"
-require "geonames_api/object"
-
-Dir[File.dirname(__FILE__) + '/geonames_api/*.rb'].each {|file| require file }
-
 module GeoNamesAPI
-  
-  mattr_accessor :url
-  @@url = "http://api.geonames.org/"
 
-  mattr_accessor :formatted
-  @@formatted = true
-  
+  mattr_accessor :url
+  self.url = 'http://api.geonames.org/'
+
   mattr_accessor :lang
-  @@lang = :en
+  self.lang = :en
   
   mattr_accessor :username
-  @@username = "demo"
-  
+  self.username = 'demo'
+
+  mattr_accessor :token
+  self.token = nil
+
   mattr_accessor :style
-  @@style = :full
+  self.style = :full
 
   mattr_accessor :logger
-  @@logger = nil
-  
+  self.logger = nil
+
+  mattr_accessor :retries
+  self.retries = 3
+
+  mattr_accessor :max_sleep_time_between_retries
+  self.max_sleep_time_between_retries = 5
+
   def self.params
-    { formatted: formatted, lang: lang, username: username, style: style }
+    {
+      lang: lang,
+      username: username,
+      token: token,
+      style: style
+    }.delete_if{ |k, v| v.blank? }
   end
     
+end
+
+Dir[File.dirname(__FILE__) + '/geonames_api/*.rb'].each do |file|
+  tgt = File.basename(file, File.extname(file))
+  GeoNamesAPI.autoload tgt.camelize, "geonames_api/#{tgt}"
 end

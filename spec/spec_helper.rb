@@ -4,8 +4,12 @@ require 'rspec'
 require 'geonames_api'
 
 RSpec.configure do |config|
-  puts "Enter your GeonamesAPI username for running functional specs (press enter to just use default)"
-  name = $stdin.gets.chomp
-  GeoNamesAPI.username = name if name.present?
+  if ENV['GEONAMES_USER']
+    GeoNamesAPI.username = ENV['GEONAMES_USER']
+  else
+    puts "Enter your GeoNames WebServices username for running functional specs (press enter to just use default)"
+    name = $stdin.gets.chomp
+    GeoNamesAPI.username = name if name.present?
+  end
   GeoNamesAPI.logger = Logger.new("test.log")
 end

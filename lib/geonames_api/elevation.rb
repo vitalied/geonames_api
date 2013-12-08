@@ -1,7 +1,16 @@
 module GeoNamesAPI
-  class Elevation < GeoNamesAPI::Object
+  class Elevation < SingletonEndpoint
+
     METHOD = "astergdemJSON"
-    ID = ["lat", "lng"]
-    NESTED = false
+    FIND_PARAMS = %w(lat lng)
+
   end
 end
+
+=begin
+{
+  "astergdem": 192,
+  "lng": 10.2,
+  "lat": 50.01
+}
+=end

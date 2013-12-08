@@ -1,7 +1,10 @@
 module GeoNamesAPI
-  class Hierarchy < GeoNamesAPI::Object
+  # This endpoint returns a list of geonames, but it's a single hierarchy,
+  # so it should be considered a singleton endpoint.
+  class Hierarchy < SingletonEndpoint
+
     METHOD = "hierarchyJSON"
-    ID = ["geonameId"]
-    NESTED = false
+    FIND_PARAMS = %w(geonameId)
+
   end
 end

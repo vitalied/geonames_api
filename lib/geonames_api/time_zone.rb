@@ -1,10 +1,9 @@
 module GeoNamesAPI
-  class TimeZone < GeoNamesAPI::Object
-    
+  class TimeZone < SingletonEndpoint
+
     METHOD = "timezoneJSON"
-    ID = ["lat", "lng"]
-    NESTED = false
-    
+    FIND_PARAMS = %w(lat lng radius date)
+
     def time_zone
       ActiveSupport::TimeZone.new(timezone_id)
     end
@@ -17,19 +16,19 @@ module GeoNamesAPI
       t = DateTime.parse(send(time_type))
       time_zone.local(t.year, t.month, t.day, t.hour, t.minute)
     end
-    
+
     def utc(time_type)
       local(time_type).utc
     end
-    
+
     def method_missing(method, *args)
       case method
-      # Provides the local and utc time variant of each time
-      # Examples: time_zone.sunrise_local, time_zone.time_utc
-      when /\A(.*)_(local|utc)\Z/
-        send($2, $1)
+        # Provides the local and utc time variant of each time
+        # Examples: time_zone.sunrise_local, time_zone.time_utc
+        when /\A(.*)_(local|utc)\Z/
+          send($2, $1)
       end
     end
-    
+
   end
 end

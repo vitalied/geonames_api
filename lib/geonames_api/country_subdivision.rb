@@ -1,7 +1,8 @@
 module GeoNamesAPI
-  class CountrySubdivision < GeoNamesAPI::Object
+  class CountrySubdivision < SingletonEndpoint
+
     METHOD = "countrySubdivisionJSON"
-    ID = ["lat", "lng"]
-    NESTED = false
+    FIND_PARAMS = %w(lat lng)
+
   end
 end

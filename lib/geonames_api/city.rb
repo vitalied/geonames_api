@@ -1,6 +1,8 @@
 module GeoNamesAPI
-  class City < GeoNamesAPI::Object
+  class City < ListEndpoint
+
     METHOD = "citiesJSON"
-    ID = ["north", "south", "east", "west"]
+    FIND_PARAMS = %w(north south east west maxRows)
+
   end
 end
