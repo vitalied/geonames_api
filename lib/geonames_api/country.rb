@@ -12,13 +12,13 @@ module GeoNamesAPI
     # if rails is defined use the rails tmp directory to ensure
     # compatability with heroku
     def export_directory
-      if defined?(Rails)
-        Rails.root.join("tmp")
+      directory = if defined?(Rails)
+        Rails.root.join("tmp","geonames_api")
       else
-        directory = File.expand_path("../../../tmp", __FILE__)
-        FileUtils.mkdir(directory) unless File.directory?(directory)
-        directory
+        File.expand_path("../../../tmp", __FILE__)
       end
+      FileUtils.mkdir(directory) unless File.directory?(directory)
+      directory
     end
 
     def postal_code_export
