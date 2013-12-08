@@ -2,7 +2,7 @@ require 'open-uri'
 require 'json'
 require 'csv'
 require 'active_support/all'
-require 'zipruby'
+require 'zip'
 
 module GeoNamesAPI
 

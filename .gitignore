@@ -15,5 +15,6 @@ rdoc
 spec/reports
 test/tmp
 test/version_tmp
-tmp
 test.log
+tmp/*.*
+.DS_Store
