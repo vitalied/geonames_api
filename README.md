@@ -1,7 +1,7 @@
 # GeoNames API
 
-[![Build Status](https://secure.travis-ci.org/mceachen/geonames_api.png?branch=master)](http://travis-ci.org/mceachen/geonames_api)
-[![Code Climate](https://codeclimate.com/github/mceachen/geonames_api.png)](https://codeclimate.com/github/mceachen/geonames_api)
+[![Build Status](https://secure.travis-ci.org/buytruckload/geonames_api.png?branch=master)](http://travis-ci.org/buytruckload/geonames_api)
+[![Code Climate](https://codeclimate.com/github/buytruckload/geonames_api.png)](https://codeclimate.com/github/buytruckload/geonames_api)
 
 This is a lightweight client for the [GeoNames](http://www.geonames.org) API. Huge thanks to them for such a great service!
 
