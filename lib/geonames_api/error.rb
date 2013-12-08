@@ -11,7 +11,7 @@ module GeoNamesAPI
         when 21
           InvalidInput
         else
-          Error
+          self
       end
       raise error_type, "#{status['message']} (#{val})"
     end
