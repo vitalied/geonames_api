@@ -190,6 +190,8 @@ A number of nice features were added by [@mrm](http://twitter.com/mrm) including
 * Timezone, AlternateName, and GeoName entries properly encoded in results
 * better test coverage, Travis CI, and CodeClimate integration
 
+To contribute:
+
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
