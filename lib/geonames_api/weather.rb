@@ -1,5 +1,5 @@
 module GeoNamesAPI
-  class Weather < List
+  class Weather < ListEndpoint
 
     METHOD = "findNearByWeatherJSON"
     FIND_PARAMS = %w(lat lng radius)
