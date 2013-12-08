@@ -13,11 +13,12 @@ module GeoNamesAPI
     # compatability with heroku
     def export_directory
       directory = if defined?(Rails)
-        Rails.root.join("tmp","geonames_api")
+        Rails.root.join("tmp","geonames_api").to_s
       else
         File.expand_path("../../../tmp", __FILE__)
       end
       FileUtils.mkdir(directory) unless File.directory?(directory)
+      FileUtils.chmod_R(0777, directory)
       directory
     end
 
