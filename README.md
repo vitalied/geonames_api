@@ -9,16 +9,6 @@ There are many GeoNames API clients. BUT, most are rewritten versions of a Java 
 
 This is a simplified ruby implementation that does not implement the entire API. But, its lightweight and has a nice interface and will be easy to extend :)
 
-The gem was originally written by [@barelyknown](http://twitter.com/barelyknown).
-
-This fork adds
-* automatic retries on timeout,
-* properly encoded url parameters,
-* support for paid users (with https and API tokens)
-* more consistent ```find``` and ```where``` methods across endpoints
-* Timezone, AlternateName, and GeoName entries properly encoded in results
-* better test coverage, Travis CI, and CodeClimate integration
-
 ## Getting Started
 
 Add this line to your application's Gemfile:
@@ -186,9 +176,19 @@ Please note the use of the `all` method with `GeoNamesAPI::Wikipedia`. It return
 
 ### Others
 
-The other services will be implemented as needed. In the mean time, feel free to contribute! Let's keep the style consistent.
+Feel free to contribute! Let's keep the style consistent.
 
 ## Contributing
+
+The gem was originally written by [@barelyknown](http://twitter.com/barelyknown).
+
+A number of nice features were added by [@mrm](http://twitter.com/mrm) including: 
+* automatic retries on timeout,
+* properly encoded url parameters,
+* support for paid users (with https and API tokens)
+* more consistent ```find``` and ```where``` methods across endpoints
+* Timezone, AlternateName, and GeoName entries properly encoded in results
+* better test coverage, Travis CI, and CodeClimate integration
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
