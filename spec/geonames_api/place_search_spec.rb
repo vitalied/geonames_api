@@ -28,8 +28,9 @@ describe GeoNamesAPI::PlaceSearch do
 
   describe "#next_page" do
     it "should grab the next page of results from the same search" do
-      big_search = GeoNamesAPI::PlaceSearch.where(name: 'columbus', maxRows: 9)
-      search_pg1 = GeoNamesAPI::PlaceSearch.where(name: 'columbus', maxRows: 3)
+      # the paging with 'columbus' sometimes doesn't match across the 3 pages.
+      big_search = GeoNamesAPI::PlaceSearch.where(name: 'goleta', maxRows: 9)
+      search_pg1 = GeoNamesAPI::PlaceSearch.where(name: 'goleta', maxRows: 3)
       search_pg2 = search_pg1.next_page
       search_pg3 = search_pg2.next_page
       search_pg1.size.should == 3
