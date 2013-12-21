@@ -25,10 +25,10 @@ module GeoNamesAPI
   self.logger = nil
 
   mattr_accessor :retries
-  self.retries = 3
+  self.retries = 5
 
   mattr_accessor :max_sleep_time_between_retries
-  self.max_sleep_time_between_retries = 5
+  self.max_sleep_time_between_retries = 10
 
   def self.params
     {
