@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
   
   gem.add_runtime_dependency "activesupport"
   gem.add_runtime_dependency "tzinfo"
-  gem.add_runtime_dependency "zipruby"
+  gem.add_runtime_dependency "rubyzip"
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
 

@@ -24,8 +24,8 @@ module GeoNamesAPI
       aliases = []
       value = @response[key]
       parsed_value = case (key)
-        when 'geonames', 'streetSegment'
-          aliases = [:geonames, :results]
+        when 'geonames', 'streetSegment', 'postalcodes'
+          aliases = [:geonames, :results, :postalcodes]
           value.map { |ea| self.class.new(ea) }
         when 'alternateNames'
           AlternateNames.new(value)
