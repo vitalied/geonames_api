@@ -12,4 +12,6 @@ RSpec.configure do |config|
     GeoNamesAPI.username = name if name.present?
   end
   GeoNamesAPI.logger = Logger.new("test.log")
+  GeoNamesAPI.retries = 10
+  GeoNamesAPI.max_sleep_time_between_retries = 60
 end
