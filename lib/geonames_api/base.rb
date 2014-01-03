@@ -28,7 +28,9 @@ module GeoNamesAPI
       rescue Timeout => e
         if retries_remaining > 0
           retries_remaining -= 1
-          sleep rand * GeoNamesAPI.max_sleep_time_between_retries
+          sleep_time = rand * GeoNamesAPI.max_sleep_time_between_retries
+          GeoNamesAPI.logger.info("Retrying in #{sleep_time}s (#{e})") if GeoNamesAPI.logger
+          sleep sleep_time
           retry
         else
           raise e
