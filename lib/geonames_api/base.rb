@@ -29,7 +29,7 @@ module GeoNamesAPI
         if retries_remaining > 0
           retries_remaining -= 1
           sleep_time = rand * GeoNamesAPI.max_sleep_time_between_retries
-          GeoNamesAPI.logger.info("Retrying in #{sleep_time}s (#{e})") if GeoNamesAPI.logger
+          GeoNamesAPI.logger.info("GEONAMES RETRIABLE ERROR: #{e}. Retrying in #{sleep_time}s.") if GeoNamesAPI.logger
           sleep sleep_time
           retry
         else
