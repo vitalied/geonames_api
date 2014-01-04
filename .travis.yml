@@ -2,6 +2,5 @@ language: ruby
 rvm:
   - 2.0.0
   - 1.9.3
-# - 1.8.7 is not supported due to a 1.9-style hash in geonames_api.rb :\
 
 script: GEONAMES_USER=geonames_api_ci bundle exec rake --trace

@@ -23,7 +23,8 @@ module GeoNamesAPI
     ERROR_CODES = [11]
   end
   class Timeout < Error
-    ERROR_CODES = [13, 22]
+    # 12 is "other error", but is normally "Cannot get a connection, pool error Timeout waiting for idle object"
+    ERROR_CODES = [12, 13, 22]
   end
   class InvalidParameter < Error
     ERROR_CODES = [14]

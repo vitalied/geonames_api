@@ -11,7 +11,7 @@ RSpec.configure do |config|
     name = $stdin.gets.chomp
     GeoNamesAPI.username = name if name.present?
   end
-  GeoNamesAPI.logger = Logger.new("test.log")
+  GeoNamesAPI.logger = ENV['CI'] ? Logger.new(STDERR) : Logger.new("test.log")
   GeoNamesAPI.retries = 10
   GeoNamesAPI.max_sleep_time_between_retries = 60
 end
