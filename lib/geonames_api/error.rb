@@ -38,13 +38,16 @@ module GeoNamesAPI
   class PostalCodeNotFound < Error
     ERROR_CODES = [17]
   end
-  class DailyLimitExceeded < Error
+  class LimitExceeded < Error
+    ERROR_CODES = []
+  end
+  class DailyLimitExceeded < LimitExceeded
     ERROR_CODES = [18]
   end
-  class HourlyLimitExceeded < Error
+  class HourlyLimitExceeded < LimitExceeded
     ERROR_CODES = [19]
   end
-  class WeeklyLimitExceeded < Error
+  class WeeklyLimitExceeded < LimitExceeded
     ERROR_CODES = [20]
   end
   class ServiceNotImplemented < Error
