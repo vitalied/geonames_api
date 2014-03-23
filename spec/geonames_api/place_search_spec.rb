@@ -53,10 +53,10 @@ describe GeoNamesAPI::PlaceSearch do
   end
 
   describe "#to_page" do
-    it "should grab the specified page of results from the same search" do
-      search10 = GeoNamesAPI::PlaceSearch.all("columbus", 10)
+    it "should set startRow appropriately" do
       search2 = GeoNamesAPI::PlaceSearch.all("columbus", 2)
-      search2.to_page(4).first.geoname_id.should == search10.results[8].geoname_id
+      page4 = search2.to_page(4)
+      page4.request_params[:startRow].should == 8
     end
   end
 end
