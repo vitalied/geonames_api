@@ -28,16 +28,27 @@ describe GeoNamesAPI::PlaceSearch do
 
   describe "#next_page" do
     it "should grab the next page of results from the same search" do
-      # the paging with 'columbus' sometimes doesn't match across the 3 pages.
-      big_search = GeoNamesAPI::PlaceSearch.where(name: 'goleta', maxRows: 9)
-      search_pg1 = GeoNamesAPI::PlaceSearch.where(name: 'goleta', maxRows: 3)
+      page_size = 3
+      big_search = GeoNamesAPI::PlaceSearch.where(name: 'goleta', maxRows: page_size * 4)
+      search_pg1 = GeoNamesAPI::PlaceSearch.where(name: 'goleta', maxRows: page_size)
+      search_pg1.size.should == page_size
+
       search_pg2 = search_pg1.next_page
+      search_pg2.size.should == page_size
+      search_pg2.request_params[:startRow].should == page_size
+
       search_pg3 = search_pg2.next_page
-      search_pg1.size.should == 3
-      search_pg2.size.should == 3
-      search_pg3.size.should == 3
-      search_pg3.request_params[:startRow].should == 6
-      (search_pg1.results + search_pg2.results + search_pg3.results).map{|ea|ea.geoname_id}.should == big_search.results.map{|ea|ea.geoname_id}
+      search_pg3.request_params[:startRow].should == page_size * 2
+      search_pg3.size.should == page_size
+
+      # Ordering isn't always deterministic, so we're just looking for an overlap bigger than 1 page size:
+      expected_ids = big_search.results.map { |ea| ea.geoname_id }
+      paged_ids = (search_pg1.results + search_pg2.results + search_pg3.results).map { |ea| ea.geoname_id }
+      matching_ids = paged_ids & expected_ids
+      if matching_ids.size <= page_size
+        # use .should just to render a nice error message:
+        paged_ids.should =~ matching_ids
+      end
     end
   end
 
